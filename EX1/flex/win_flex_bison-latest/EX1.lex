@@ -5,6 +5,7 @@ int counter=0;
 %}
 
 DIGIT    [0-9]
+NUMBER   [1-6]
 ALPHA	 [a-zA-Z]
 
 
@@ -13,7 +14,15 @@ ALPHA	 [a-zA-Z]
 {ALPHA}({ALPHA}|{DIGIT})*       fprintf(yyout, "An identifier, count=%d: %s\n", ++counter, yytext);
 "<ouend>"                       fprintf("endML");
 "<oubegin>"                     fprintf("startML");
-
+"<nl>"							fprintf("\n");
+"<bold"                         fprintf("begin_bold_mark");
+"</bold"                        fprintf("end bold mark");
+"<it>"							fprintf("italic marks");
+"</it>"							fprintf("end italic marks");
+"<!!"							fprintf("begin comment");
+"!!>"							fprintf("end comment");
+"<c>"							fprintf("start center");
+"</c>"						    fprintf("end center");
 [ \t\n] 			{}
 .       			fprintf(yyout ,"Unrecognized character!: %s\n", yytext );
 
