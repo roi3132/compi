@@ -11,6 +11,7 @@ ALPHA	 [a-zA-Z]
 %%
 
 {ALPHA}({ALPHA}|{DIGIT})*       fprintf(yyout, "An identifier, count=%d: %s\n", ++counter, yytext);
+["<oubegin>"]                           fprintf("for");
 [ \t\n] 			{}
 .       			fprintf(yyout ,"Unrecognized character!: %s\n", yytext );
 
@@ -29,6 +30,6 @@ yyout = fopen( argv[1], "w" );
 else
 yyout = stdout;
 
-
+fprintf("Token \t Lexeme \t Attributes \n");
 
 yylex();}

@@ -1,0 +1,2 @@
+EX1.lex:18: unrecognized rule
+EX1.lex:18: fatal parse error
