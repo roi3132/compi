@@ -1907,13 +1907,13 @@ int main(int argc, char **argv ){
 if ( argc > 0 )
 yyin = fopen( argv[0], "r" );
 else
-yyin = stdin;
+yyin = fopen("infile.txt", "r" );
 
 
 if ( argc > 1 )
 yyout = fopen( argv[1], "w" );
 else
-yyout = stdout;
+yyout =  fopen("outfile.txt", "w" );
 
 fprintf(yyout, "Token \t Lexeme \t Attributes \n");
 
