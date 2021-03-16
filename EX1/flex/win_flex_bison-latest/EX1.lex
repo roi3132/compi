@@ -11,7 +11,9 @@ ALPHA	 [a-zA-Z]
 %%
 
 {ALPHA}({ALPHA}|{DIGIT})*       fprintf(yyout, "An identifier, count=%d: %s\n", ++counter, yytext);
-["<oubegin>"]                           fprintf("for");
+"<ouend>"                       fprintf("endML");
+"<oubegin>"                     fprintf("startML");
+
 [ \t\n] 			{}
 .       			fprintf(yyout ,"Unrecognized character!: %s\n", yytext );
 
