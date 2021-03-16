@@ -15,9 +15,9 @@ CLOSESYMB ">"
 %%
 
 {ALPHA}({ALPHA}|{DIGIT})*       fprintf(yyout, "An identifier, count=%d: %s\n", ++counter, yytext);
-"<ouend>"                       fprintf("endML");
-"<oubegin>"                     fprintf("startML");
-"<nl>"							fprintf("\n");
+"<ouend" CLOSESYMB                       fprintf("endML");
+"<oubegin" CLOSESYMB                     fprintf("startML");
+"<nl" CLOSESYMB							fprintf("\n");
 "<bold"                         fprintf("begin_bold_mark");
 "</bold"                        fprintf("end bold mark");
 "<it>"							fprintf("italic marks");
