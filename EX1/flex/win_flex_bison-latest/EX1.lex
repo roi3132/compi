@@ -23,8 +23,8 @@ HEADER					"h"
 {OPENSYMB}{OUEND}{CLOSESYMB}									fprintf(yyout, "endML\t%s\n", yytext);
 {OPENSYMB}{OUBEGIN}{CLOSESYMB}							  fprintf(yyout, "startML\t%s\n", yytext);
 {OPENSYMB}{NL}{CLOSESYMB}											fprintf(yyout, "newline\t%s\n", yytext);
-{OPENSYMB}{HEADER}{NUMBER}{CLOSESYMB}					fprintf(yyout, "begin_heading_mark\t%s\tSize %d\n", yytext);
-{OPENSYMBCLOSE}{HEADER}{NUMBER}{CLOSESYMB}		fprintf(yyout, "bend_heading_mark\t%s\tSize %d\n", yytext);
+{OPENSYMB}{HEADER}{NUMBER}{CLOSESYMB}					fprintf(yyout, "begin_heading_mark\t%s\tSize %c\n", yytext, yytext[2]);
+{OPENSYMBCLOSE}{HEADER}{NUMBER}{CLOSESYMB}		fprintf(yyout, "bend_heading_mark\t%s\tSize %c\n", yytext, yytext[2]);
 {OPENSYMB}"bold"{CLOSESYMB}										fprintf(yyout, "begin_bold_mark\t%s\n", yytext);
 {OPENSYMBCLOSE}"bold"{CLOSESYMB}							fprintf(yyout, "end_bold_mark\t%s\n", yytext);
 {OPENSYMB}"it"{CLOSESYMB}											fprintf(yyout, "italic_marks\t%s\n", yytext);
@@ -33,7 +33,7 @@ HEADER					"h"
 "!!"{CLOSESYMB}																fprintf(yyout, "end_comment\t%s\n", yytext);
 {OPENSYMB}"c"{CLOSESYMB}											fprintf(yyout, "start_center\t%s\n", yytext);
 {OPENSYMBCLOSE}"c"{CLOSESYMB}									fprintf(yyout, "end_center\t%s\n", yytext);
-{SETCOLOR}{COLOR}{CLOSESYMB}									fprintf(yyout, "set_text_color\t%s\n", yytext);
+{SETCOLOR}{COLOR}{CLOSESYMB}									fprintf(yyout, "set_text_color\t%s\tColor XXX\n", yytext);
 {OPENSYMB}"bln"{CLOSESYMB}										fprintf(yyout, "begin_number_bullet\t%s\n", yytext);
 {OPENSYMBCLOSE}"bln"{CLOSESYMB}								fprintf(yyout, "end_number_bullet\t%s\n", yytext);
 {OPENSYMB}"bl"{CLOSESYMB}											fprintf(yyout, "begin_regular_bullet\t%s\n", yytext);

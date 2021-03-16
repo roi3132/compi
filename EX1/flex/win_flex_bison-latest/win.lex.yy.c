@@ -806,12 +806,12 @@ fprintf(yyout, "newline\t%s\n", yytext);
 case 5:
 YY_RULE_SETUP
 #line 26 "EX1.lex"
-fprintf(yyout, "begin_heading_mark\t%s\tSize %d\n", yytext);
+fprintf(yyout, "begin_heading_mark\t%s\tSize %c\n", yytext, yytext[2]);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 27 "EX1.lex"
-fprintf(yyout, "bend_heading_mark\t%s\tSize %d\n", yytext);
+fprintf(yyout, "bend_heading_mark\t%s\tSize %c\n", yytext, yytext[2]);
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
@@ -856,7 +856,7 @@ fprintf(yyout, "end_center\t%s\n", yytext);
 case 15:
 YY_RULE_SETUP
 #line 36 "EX1.lex"
-fprintf(yyout, "set_text_color\t%s\n", yytext);
+fprintf(yyout, "set_text_color\t%s\tColor XXX\n", yytext);
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
