@@ -7,6 +7,9 @@ int counter=0;
 DIGIT    [0-9]
 NUMBER   [1-6]
 ALPHA	 [a-zA-Z]
+COLOR    "red" | "blue" | "black"
+SETCOLOR "<text color="
+CLOSESYMB ">"
 
 
 %%
@@ -18,11 +21,13 @@ ALPHA	 [a-zA-Z]
 "<bold"                         fprintf("begin_bold_mark");
 "</bold"                        fprintf("end bold mark");
 "<it>"							fprintf("italic marks");
-"</it>"							fprintf("end italic marks");
+"</it" {CLOSESYMB}							fprintf("end italic marks");
 "<!!"							fprintf("begin comment");
 "!!>"							fprintf("end comment");
 "<c>"							fprintf("start center");
 "</c>"						    fprintf("end center");
+{SETCOLOR} {COLOR} {CLOSESYMB}  fprintf("end center");
+
 [ \t\n] 			{}
 .       			fprintf(yyout ,"Unrecognized character!: %s\n", yytext );
 
