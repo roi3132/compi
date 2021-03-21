@@ -7,15 +7,15 @@ int counter=0;
 DIGIT			[0-9]
 NUMBER			[1-6]
 ALPHA			[a-zA-Z]
-COLOR			"\"red\""|"\"blue\""|"\"black\""
-SETCOLOR		"<text color="
+COLOR			"\""(?i:red)|"\""(?i:blue)|"\""(?i:black)
+SETCOLOR		"<"(?i:text)(?i:color)"="
 CLOSESYMB		">"
 OPENSYMB		"<"
 OPENSYMBCLOSE	"</"
-OUEND			"ouend"|"OUEND"
-OUBEGIN			"oubegin"|"OUBEGIN"
-NL				"nl"|"NL"
-HEADER			"h"
+OUEND			(?i:ouend)				
+OUBEGIN			(?i:oubegin)
+NL				(?i:nl)
+HEADER			(?i:h)
 
 %%
 
