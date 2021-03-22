@@ -42,18 +42,19 @@ HEADER			(?i:h)
 .       										fprintf(yyout ,"Unrecognized character!: %s\n", yytext );
 
 %%
+#define _CRT_SECCURE_NO_WARNING
 
 int main(int argc, char **argv ){
 ++argv, --argc;  /* skip over program name */
-if ( argc > 0 )
-yyin = fopen( argv[0], "r" );
-else
+//if ( argc > 0 )
+//yyin = fopen( argv[0], "r" );
+//else
 yyin = fopen("infile.txt", "r" );
 
 
-if ( argc > 1 )
-yyout = fopen( argv[1], "w" );
-else
+//if ( argc > 1 )
+//yyout = fopen( argv[1], "w" );
+//else
 yyout = fopen("outfile.txt", "w" );
 
 fprintf(yyout, "Token \t Lexeme \t Attributes \n");

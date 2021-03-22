@@ -1,0 +1,3 @@
+﻿  win.lex.yy.c
+EX1.lex(58,13): warning C4133: 'function': incompatible types - from 'FILE *' to 'const char *const '
+  Project.vcxproj -> C:\Users\roial\Desktop\גיבוי לענן\לימודים\קורסים\שנה ג\סמסטר ב\תורת קומפילציה\עבודות\git\EX1\flex\win_flex_bison-latest\Project\Project\Debug\Project.exe
