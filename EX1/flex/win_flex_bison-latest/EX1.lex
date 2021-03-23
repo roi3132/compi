@@ -55,15 +55,15 @@ int main(int argc, char **argv ){
 if ( argc > 0 )
 yyin = fopen( argv[0], "r" );
 else
-// yyin = fopen("infile.txt", "r" );
-yyout = stdin;
+yyin = fopen("infile.txt", "r" );
+//yyout = stdin;
 
 
 if ( argc > 1 )
 yyout = fopen( argv[1], "w" );
 else
-// yyout = fopen("outfile.txt", "w" );
-yyout = stdout;
+yyout = fopen("outfile.txt", "w" );
+//yyout = stdout;
 fprintf(yyout, "Token \t\t\t\t Lexeme \t\t Attributes \n");
 
 yylex();}
